@@ -1,12 +1,15 @@
 {
   "name": "@guoyunhe/cli-scripts",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Initialize a Node.js command line tool project",
   "bin": {
     "cli-scripts": "dist/cjs/index.js"
   },
   "files": [
     "dist",
+    "global.d.ts",
+    "jest-preset.mjs",
+    "CHANGELOG.md",
     "LICENSE",
     "README.md"
   ],
