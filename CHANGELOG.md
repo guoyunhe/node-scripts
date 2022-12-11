@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 - 2022-12-11
+
+- Fix `ts-jest` dependency
+
 ## 1.1.0 - 2022-12-11
 
 - Add Jest preset
