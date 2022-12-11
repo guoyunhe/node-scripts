@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2 - 2022-12-11
+
+- Fix bin scripts
+
 ## 1.1.1 - 2022-12-11
 
 - Fix `ts-jest` dependency
