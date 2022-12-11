@@ -1,6 +1,6 @@
 {
   "name": "@guoyunhe/cli-scripts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Initialize a Node.js command line tool project",
   "bin": {
     "cli-scripts": "dist/cjs/index.js"
@@ -35,9 +35,9 @@
   "author": "Guo Yunhe",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/guoyunhe/rive/issues"
+    "url": "https://github.com/guoyunhe/cli-scripts/issues"
   },
-  "homepage": "https://github.com/guoyunhe/rive#readme",
+  "homepage": "https://github.com/guoyunhe/cli-scripts#readme",
   "dependencies": {
     "@guoyunhe/eslint-config-cli": "^1.0.1",
     "commander": "^9.4.1",
