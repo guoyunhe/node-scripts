@@ -1,4 +1,4 @@
-import { build } from 'esbuild';
+import { build, BuildOptions } from 'esbuild';
 import glob from 'fast-glob';
 import { rm, readJSON } from 'fs-extra';
 import { join } from 'path';
@@ -19,23 +19,25 @@ export async function buildAction() {
     join('src', 'bin', '*.ts'),
     join('src', 'index.ts'),
   ]);
+  const commonOptions: BuildOptions = {
+    entryPoints,
+    bundle: true,
+    define,
+    external,
+    platform: 'node',
+    target: 'node12',
+  };
   await rm('dist', { force: true, recursive: true });
   await Promise.all([
     build({
-      entryPoints,
+      ...commonOptions,
       format: 'cjs',
       outdir: join('dist', 'cjs'),
-      bundle: true,
-      define,
-      external,
     }),
     build({
-      entryPoints,
+      ...commonOptions,
       format: 'esm',
       outdir: join('dist', 'esm'),
-      bundle: true,
-      define,
-      external,
     }),
   ]);
 }
