@@ -1,0 +1,46 @@
+{
+  "name": "@guoyunhe/cli-scripts",
+  "version": "1.0.0",
+  "description": "Initialize a Node.js command line tool project",
+  "bin": "index.js",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "ts-node src/bin/cli-scripts.ts build",
+    "format": "ts-node src/bin/cli-scripts.ts format",
+    "lint": "ts-node src/bin/cli-scripts.ts lint",
+    "test": "ts-node src/bin/cli-scripts.ts test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guoyunhe/cli-scripts.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "library",
+    "component",
+    "vite",
+    "document"
+  ],
+  "author": "Guo Yunhe",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/guoyunhe/rive/issues"
+  },
+  "homepage": "https://github.com/guoyunhe/rive#readme",
+  "dependencies": {
+    "commander": "^9.4.1",
+    "esbuild": "^0.16.4",
+    "fast-glob": "^3.2.12",
+    "jest": "^29.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.13",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
