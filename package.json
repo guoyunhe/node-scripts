@@ -2,7 +2,9 @@
   "name": "@guoyunhe/cli-scripts",
   "version": "1.0.0",
   "description": "Initialize a Node.js command line tool project",
-  "bin": "index.js",
+  "bin": {
+    "cli-scripts": "dist/cjs/index.js"
+  },
   "files": [
     "dist",
     "LICENSE",
@@ -19,12 +21,16 @@
     "url": "git+https://github.com/guoyunhe/cli-scripts.git"
   },
   "keywords": [
-    "react",
+    "cli",
     "typescript",
-    "library",
-    "component",
-    "vite",
-    "document"
+    "build",
+    "compile",
+    "lint",
+    "eslint",
+    "format",
+    "prettier",
+    "test",
+    "jest"
   ],
   "author": "Guo Yunhe",
   "license": "GPL-3.0",
@@ -33,14 +39,28 @@
   },
   "homepage": "https://github.com/guoyunhe/rive#readme",
   "dependencies": {
+    "@guoyunhe/eslint-config-cli": "^1.0.1",
     "commander": "^9.4.1",
     "esbuild": "^0.16.4",
+    "eslint": "^8.29.0",
     "fast-glob": "^3.2.12",
-    "jest": "^29.3.1"
+    "fs-extra": "^11.1.0",
+    "jest": "^29.3.1",
+    "prettier": "^2.8.1"
   },
   "devDependencies": {
+    "@types/eslint": "^8.4.10",
+    "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.11.13",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@guoyunhe/cli"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

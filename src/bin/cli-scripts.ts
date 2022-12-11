@@ -1,27 +1,31 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { build, lint, test } from '..';
+import { buildAction, lintAction, testAction } from '..';
 
 const program = new Command('cli-scripts');
 
 program
   .command('build')
   .description('Build command line tools and library exports')
-  .action(build);
+  .action(buildAction);
 
 program
   .command('lint')
-  .description('Check lint problems with ESLint and Stylelint')
+  .description('Check lint problems with ESLint')
   .option('--fix', 'Fix lint problems automatically')
-  .option('--staged', 'Lint git staged files')
-  .action(lint);
+  .action(lintAction);
+
+program
+  .command('format')
+  .description('Format source code with Prettier and fix ESLint issues')
+  .action(() => lintAction({ fix: true }));
 
 program
   .command('test')
   .allowUnknownOption()
   .description('Run unit tests (same with Jest API)')
-  .action(test);
+  .action(testAction);
 
 program.helpOption('-h, --help', 'Show full help');
 program.addHelpCommand('help [command]', 'Show help of a command');
