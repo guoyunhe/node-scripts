@@ -25,7 +25,6 @@ export async function buildAction() {
     define,
     external,
     platform: 'node',
-    target: 'node12',
   };
   await rm('dist', { force: true, recursive: true });
   await Promise.all([

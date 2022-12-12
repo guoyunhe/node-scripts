@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 - 2022-12-12
+
+- Support tsconfig `target`
+
 ## 1.1.3 - 2022-12-11
 
 - Fix bin scripts
