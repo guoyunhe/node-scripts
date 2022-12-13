@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 - 2022-12-13
+
+- Change lint config package name
+
 ## 1.3.0 - 2022-12-13
 
 - Added `build --watch` option
