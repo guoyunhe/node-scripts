@@ -4,7 +4,11 @@ import { rm, readJSON } from 'fs-extra';
 import { join } from 'path';
 import { builtinModules } from 'module';
 
-export async function buildAction() {
+export interface BuildActionOptions {
+  watch: boolean;
+}
+
+export async function buildAction({ watch }: BuildActionOptions) {
   const packageJson = (await readJSON('package.json', { throws: false })) || {};
   const define = {
     PACKAGE_VERSION: '"' + packageJson.version + '"',
@@ -25,6 +29,7 @@ export async function buildAction() {
     define,
     external,
     platform: 'node',
+    watch,
   };
   await rm('dist', { force: true, recursive: true });
   await Promise.all([

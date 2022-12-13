@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 - 2022-12-13
+
+- Added `build --watch` option
+- Add `watch` command, same as `build --watch`
+
 ## 1.2.0 - 2022-12-12
 
 - Support tsconfig `target`

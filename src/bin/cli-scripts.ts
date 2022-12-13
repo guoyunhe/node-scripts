@@ -8,7 +8,18 @@ const program = new Command('cli-scripts');
 program
   .command('build')
   .description('Build command line tools and library exports')
+  .option(
+    '--watch',
+    'Watch source code change and rebuild automatically, same as cli-scripts watch'
+  )
   .action(buildAction);
+
+program
+  .command('watch')
+  .description(
+    'Watch source code change and rebuild automatically, same as cli-scripts build --watch'
+  )
+  .action(() => buildAction({ watch: true }));
 
 program
   .command('lint')
