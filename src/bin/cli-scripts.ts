@@ -3,21 +3,21 @@
 import { Command } from 'commander';
 import { buildAction, lintAction, testAction } from '..';
 
-const program = new Command('cli-scripts');
+const program = new Command('node-scripts');
 
 program
   .command('build')
   .description('Build command line tools and library exports')
   .option(
     '--watch',
-    'Watch source code change and rebuild automatically, same as cli-scripts watch'
+    'Watch source code change and rebuild automatically, same as node-scripts watch'
   )
   .action(buildAction);
 
 program
   .command('watch')
   .description(
-    'Watch source code change and rebuild automatically, same as cli-scripts build --watch'
+    'Watch source code change and rebuild automatically, same as node-scripts build --watch'
   )
   .action(() => buildAction({ watch: true }));
 

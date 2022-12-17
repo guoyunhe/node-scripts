@@ -1,5 +1,16 @@
-# @guoyunhe/cli-scripts
+# @guoyunhe/node-scripts
 
-Scripts to build, lint and test CLI projects.
+Scripts to build, lint and test Node.js projects.
 
-Please read [@guoyunhe/create-cli document](https://github.com/guoyunhe/create-cli).
+Used by:
+
+- [@guoyunhe/create-cli](https://github.com/guoyunhe/create-cli).
+- [@guoyunhe/create-node](https://github.com/guoyunhe/create-node).
+
+Features:
+
+- TypeScript
+- esbuild
+- ESLint
+- Prettier
+- Jest

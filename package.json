@@ -1,9 +1,9 @@
 {
-  "name": "@guoyunhe/cli-scripts",
+  "name": "@guoyunhe/node-scripts",
   "version": "1.4.0",
-  "description": "Initialize a Node.js command line tool project",
+  "description": "Scripts for Node.js libraries or command line tools",
   "bin": {
-    "cli-scripts": "dist/cjs/bin/cli-scripts.js"
+    "node-scripts": "dist/cjs/bin/node-scripts.js"
   },
   "files": [
     "dist",
@@ -14,15 +14,15 @@
     "README.md"
   ],
   "scripts": {
-    "build": "ts-node src/bin/cli-scripts.ts build",
-    "watch": "ts-node src/bin/cli-scripts.ts watch",
-    "format": "ts-node src/bin/cli-scripts.ts format",
-    "lint": "ts-node src/bin/cli-scripts.ts lint",
-    "test": "ts-node src/bin/cli-scripts.ts test"
+    "build": "ts-node src/bin/node-scripts.ts build",
+    "watch": "ts-node src/bin/node-scripts.ts watch",
+    "format": "ts-node src/bin/node-scripts.ts format",
+    "lint": "ts-node src/bin/node-scripts.ts lint",
+    "test": "ts-node src/bin/node-scripts.ts test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guoyunhe/cli-scripts.git"
+    "url": "git+https://github.com/guoyunhe/node-scripts.git"
   },
   "keywords": [
     "cli",
@@ -39,11 +39,11 @@
   "author": "Guo Yunhe",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/guoyunhe/cli-scripts/issues"
+    "url": "https://github.com/guoyunhe/node-scripts/issues"
   },
-  "homepage": "https://github.com/guoyunhe/cli-scripts#readme",
+  "homepage": "https://github.com/guoyunhe/node-scripts#readme",
   "dependencies": {
-    "@guoyunhe/eslint-config-cli-scripts": "^1.0.0",
+    "@guoyunhe/eslint-config-node-scripts": "^1.0.0",
     "commander": "^9.4.1",
     "esbuild": "^0.16.4",
     "eslint": "^8.29.0",
@@ -62,7 +62,7 @@
     "typescript": "^4.9.4"
   },
   "eslintConfig": {
-    "extends": "@guoyunhe/cli-scripts"
+    "extends": "@guoyunhe/node-scripts"
   },
   "prettier": {
     "singleQuote": true
