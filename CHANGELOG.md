@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0 - 2022-12-17
+
+- Output TypeScript declartion (.d.ts)
+
 ## 1.4.0 - 2022-12-13
 
 - Change lint config package name

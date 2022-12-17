@@ -3,6 +3,7 @@ import glob from 'fast-glob';
 import { rm, readJSON } from 'fs-extra';
 import { join } from 'path';
 import { builtinModules } from 'module';
+import { bundleDeclaration } from './bundleDeclaration';
 
 export interface BuildActionOptions {
   watch: boolean;
@@ -43,5 +44,6 @@ export async function buildAction({ watch }: BuildActionOptions) {
       format: 'esm',
       outdir: join('dist', 'esm'),
     }),
+    bundleDeclaration(),
   ]);
 }

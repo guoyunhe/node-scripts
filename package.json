@@ -1,6 +1,6 @@
 {
   "name": "@guoyunhe/node-scripts",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Scripts for Node.js libraries or command line tools",
   "bin": {
     "node-scripts": "dist/cjs/bin/node-scripts.js"
@@ -44,6 +44,7 @@
   "homepage": "https://github.com/guoyunhe/node-scripts#readme",
   "dependencies": {
     "@guoyunhe/eslint-config-node-scripts": "^1.0.0",
+    "@microsoft/api-extractor": "^7.33.7",
     "commander": "^9.4.1",
     "esbuild": "^0.16.4",
     "eslint": "^8.29.0",
