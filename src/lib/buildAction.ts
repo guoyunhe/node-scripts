@@ -1,26 +1,19 @@
-import { build, BuildOptions } from 'esbuild';
+import { build, BuildOptions, context } from 'esbuild';
 import glob from 'fast-glob';
 import { rm, readJSON } from 'fs-extra';
 import { join } from 'path';
-import { builtinModules } from 'module';
 import { bundleDeclaration } from './bundleDeclaration';
 
 export interface BuildActionOptions {
   watch: boolean;
 }
 
+// What
 export async function buildAction({ watch }: BuildActionOptions) {
   const packageJson = (await readJSON('package.json', { throws: false })) || {};
   const define = {
     PACKAGE_VERSION: '"' + packageJson.version + '"',
   };
-  const external: string[] = [
-    ...Object.keys(packageJson.dependencies || {}),
-    ...Object.keys(packageJson.devDependencies || {}),
-    ...Object.keys(packageJson.peerDependencies || {}),
-    ...builtinModules,
-    ...builtinModules.map((mod) => 'node:' + mod),
-  ];
   const entryPoints = await glob([
     join('src', 'bin', '*.ts'),
     join('src', 'index.ts'),
@@ -29,22 +22,38 @@ export async function buildAction({ watch }: BuildActionOptions) {
     entryPoints,
     bundle: true,
     define,
-    external,
+    packages: 'external',
     platform: 'node',
-    watch,
+    write: true,
   };
   await rm('dist', { force: true, recursive: true });
-  await Promise.all([
-    build({
+
+  async function buildJs(format: 'cjs' | 'esm') {
+    const buildOptions: BuildOptions = {
       ...commonOptions,
-      format: 'cjs',
-      outdir: join('dist', 'cjs'),
-    }),
-    build({
-      ...commonOptions,
-      format: 'esm',
-      outdir: join('dist', 'esm'),
-    }),
-    bundleDeclaration(),
-  ]);
+      format,
+      outdir: join('dist', format),
+    };
+    if (watch) {
+      const ctx = await context(buildOptions);
+      await ctx.watch({});
+    } else {
+      await build(buildOptions);
+    }
+  }
+
+  await Promise.all([buildJs('cjs'), buildJs('esm'), bundleDeclaration()]);
+
+  if (watch) {
+    console.log('watching, press q to quit...');
+    // without this, we would only get streams once enter is pressed
+    process.stdin.setRawMode(true);
+    process.stdin.resume();
+    process.stdin.on('data', function (key) {
+      // press q to quit
+      if (key.toString('utf-8') === 'q') {
+        process.exit();
+      }
+    });
+  }
 }
