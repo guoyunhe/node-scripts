@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.1 - 2023-01-22
+
+- Fix build bundle size by external `devDependencies` and `peerDependencies`
+
 ## 1.5.0 - 2022-12-17
 
 - Output TypeScript declartion (.d.ts)

@@ -16,7 +16,8 @@ export async function buildAction({ watch }: BuildActionOptions) {
   };
   const external: string[] = [
     ...Object.keys(packageJson.dependencies || {}),
-    ...Object.keys(packageJson.peerDpendencies || {}),
+    ...Object.keys(packageJson.devDependencies || {}),
+    ...Object.keys(packageJson.peerDependencies || {}),
     ...builtinModules,
     ...builtinModules.map((mod) => 'node:' + mod),
   ];
