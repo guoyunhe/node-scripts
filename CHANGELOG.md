@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.0 - 2023-01-22
+
+- Update `esbuild` from 0.16.x to 0.17.x
+
 ## 1.5.1 - 2023-01-22
 
 - Fix build bundle size by external `devDependencies` and `peerDependencies`

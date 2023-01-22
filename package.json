@@ -1,6 +1,6 @@
 {
   "name": "@guoyunhe/node-scripts",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Scripts for Node.js libraries or command line tools",
   "bin": {
     "node-scripts": "dist/cjs/bin/node-scripts.js"
@@ -46,7 +46,7 @@
     "@guoyunhe/eslint-config-node-scripts": "^1.0.0",
     "@microsoft/api-extractor": "^7.33.8",
     "commander": "^9.5.0",
-    "esbuild": "^0.16.17",
+    "esbuild": "^0.17.4",
     "eslint": "^8.32.0",
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.0",
