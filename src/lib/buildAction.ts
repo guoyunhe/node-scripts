@@ -8,7 +8,6 @@ export interface BuildActionOptions {
   watch: boolean;
 }
 
-// What
 export async function buildAction({ watch }: BuildActionOptions) {
   const packageJson = (await readJSON('package.json', { throws: false })) || {};
   const define = {
