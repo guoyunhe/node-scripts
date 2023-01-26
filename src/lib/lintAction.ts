@@ -32,7 +32,9 @@ export async function lintAction({ fix }: LintActionOptions) {
       })
     );
     // Format package.json
-    await outputJSON('package.json', sortPackageJson(packageJson));
+    await outputJSON('package.json', sortPackageJson(packageJson), {
+      spaces: 2,
+    });
   }
 
   // Create ESLint instance and load configuration

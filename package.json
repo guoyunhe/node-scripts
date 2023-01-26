@@ -70,6 +70,7 @@
     "extends": "@guoyunhe/node-scripts"
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "printWidth": 100
   }
 }
