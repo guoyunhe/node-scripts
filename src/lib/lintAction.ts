@@ -2,10 +2,7 @@ import { ESLint } from 'eslint';
 import { outputJSON, readFile, readJSON, writeFile } from 'fs-extra';
 import sortPackageJson from 'sort-package-json';
 import glob from 'fast-glob';
-import {
-  resolveConfig as prettierResolveConfig,
-  format as prettierFormat,
-} from 'prettier';
+import { resolveConfig as prettierResolveConfig, format as prettierFormat } from 'prettier';
 
 export interface LintActionOptions {
   fix?: boolean;

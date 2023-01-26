@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.1 - 2023-01-26
+
+- Fix `package.json` spaces
+
 ## 1.7.0 - 2023-01-26
 
 - Format `package.json`

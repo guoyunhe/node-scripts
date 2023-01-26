@@ -1,7 +1,29 @@
 {
   "name": "@guoyunhe/node-scripts",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Scripts for Node.js libraries or command line tools",
+  "keywords": [
+    "cli",
+    "typescript",
+    "build",
+    "compile",
+    "lint",
+    "eslint",
+    "format",
+    "prettier",
+    "test",
+    "jest"
+  ],
+  "homepage": "https://github.com/guoyunhe/node-scripts#readme",
+  "bugs": {
+    "url": "https://github.com/guoyunhe/node-scripts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guoyunhe/node-scripts.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Guo Yunhe",
   "bin": {
     "node-scripts": "dist/cjs/bin/node-scripts.js"
   },
@@ -15,33 +37,18 @@
   ],
   "scripts": {
     "build": "ts-node src/bin/node-scripts.ts build",
-    "watch": "ts-node src/bin/node-scripts.ts watch",
     "format": "ts-node src/bin/node-scripts.ts format",
     "lint": "ts-node src/bin/node-scripts.ts lint",
-    "test": "ts-node src/bin/node-scripts.ts test"
+    "test": "ts-node src/bin/node-scripts.ts test",
+    "watch": "ts-node src/bin/node-scripts.ts watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/guoyunhe/node-scripts.git"
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true
   },
-  "keywords": [
-    "cli",
-    "typescript",
-    "build",
-    "compile",
-    "lint",
-    "eslint",
-    "format",
-    "prettier",
-    "test",
-    "jest"
-  ],
-  "author": "Guo Yunhe",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/guoyunhe/node-scripts/issues"
+  "eslintConfig": {
+    "extends": "@guoyunhe/node-scripts"
   },
-  "homepage": "https://github.com/guoyunhe/node-scripts#readme",
   "dependencies": {
     "@guoyunhe/eslint-config-node-scripts": "^1.0.0",
     "@microsoft/api-extractor": "^7.34.0",
@@ -65,12 +72,5 @@
   },
   "peerDependencies": {
     "typescript": "^4.0.0"
-  },
-  "eslintConfig": {
-    "extends": "@guoyunhe/node-scripts"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 100
   }
 }

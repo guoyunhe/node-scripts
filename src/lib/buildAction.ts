@@ -13,10 +13,7 @@ export async function buildAction({ watch }: BuildActionOptions) {
   const define = {
     PACKAGE_VERSION: '"' + packageJson.version + '"',
   };
-  const entryPoints = await glob([
-    join('src', 'bin', '*.ts'),
-    join('src', 'index.ts'),
-  ]);
+  const entryPoints = await glob([join('src', 'bin', '*.ts'), join('src', 'index.ts')]);
   const commonOptions: BuildOptions = {
     entryPoints,
     bundle: true,

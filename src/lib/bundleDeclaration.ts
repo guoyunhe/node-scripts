@@ -6,11 +6,7 @@ import {
 import glob from 'fast-glob';
 import { pathExists, readJSON, rm } from 'fs-extra';
 import { join } from 'path';
-import {
-  CompilerOptions,
-  convertCompilerOptionsFromJson,
-  createProgram,
-} from 'typescript';
+import { CompilerOptions, convertCompilerOptionsFromJson, createProgram } from 'typescript';
 
 /**
  * Build TypeScript declaration files and bundle them into one
@@ -24,10 +20,7 @@ export async function bundleDeclaration() {
   const tsconfigJsonPath = join(process.cwd(), 'tsconfig.json');
   if (!(await pathExists(tsconfigJsonPath))) return;
   const tsconfig = (await readJSON(tsconfigJsonPath, { throws: false })) || {};
-  const compilerOptionsResult = convertCompilerOptionsFromJson(
-    tsconfig,
-    process.cwd()
-  );
+  const compilerOptionsResult = convertCompilerOptionsFromJson(tsconfig, process.cwd());
   const compilerOptions: CompilerOptions = {
     ...compilerOptionsResult.options,
     declaration: true,
