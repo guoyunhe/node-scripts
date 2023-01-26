@@ -1,5 +1,6 @@
 import { ESLint } from 'eslint';
-import { readFile, readJSON, writeFile } from 'fs-extra';
+import { outputJSON, readFile, readJSON, writeFile } from 'fs-extra';
+import sortPackageJson from 'sort-package-json';
 import glob from 'fast-glob';
 import {
   resolveConfig as prettierResolveConfig,
@@ -30,6 +31,8 @@ export async function lintAction({ fix }: LintActionOptions) {
         }
       })
     );
+    // Format package.json
+    await outputJSON('package.json', sortPackageJson(packageJson));
   }
 
   // Create ESLint instance and load configuration
