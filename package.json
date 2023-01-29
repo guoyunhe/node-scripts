@@ -22,8 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/guoyunhe/node-scripts.git"
   },
+  "funding": "https://github.com/sponsors/guoyunhe",
   "license": "GPL-3.0",
-  "author": "Guo Yunhe",
+  "author": {
+    "name": "Guo Yunhe",
+    "email": "i@guoyunhe.me"
+  },
   "bin": {
     "node-scripts": "dist/cjs/bin/node-scripts.js"
   },
