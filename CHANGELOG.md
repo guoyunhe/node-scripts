@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9.0 - 2023-01-30
+
+- Refactored `build` action
+
 ## 1.8.0 - 2023-01-30
 
 - Refactored `lint` and `test` actions

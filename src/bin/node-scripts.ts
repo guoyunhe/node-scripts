@@ -3,7 +3,7 @@
 import { lint } from '@guoyunhe/lint-action';
 import { Command } from 'commander';
 import { run as jestRun } from 'jest';
-import { buildAction } from '..';
+import { buildNode } from '..';
 
 const program = new Command('node-scripts');
 
@@ -14,14 +14,14 @@ program
     '--watch',
     'Watch source code change and rebuild automatically, same as node-scripts watch'
   )
-  .action(buildAction);
+  .action(buildNode);
 
 program
   .command('watch')
   .description(
     'Watch source code change and rebuild automatically, same as node-scripts build --watch'
   )
-  .action(() => buildAction({ watch: true }));
+  .action(() => buildNode({ watch: true }));
 
 program
   .command('lint')
