@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8.0 - 2023-01-30
+
+- Refactored `lint` and `test` actions
+
 ## 1.7.1 - 2023-01-26
 
 - Fix `package.json` spaces

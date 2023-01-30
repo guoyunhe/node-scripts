@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
+import { lint } from '@guoyunhe/lint-action';
 import { Command } from 'commander';
-import { buildAction, lintAction, testAction } from '..';
+import { run as jestRun } from 'jest';
+import { buildAction } from '..';
 
 const program = new Command('node-scripts');
 
@@ -25,18 +27,18 @@ program
   .command('lint')
   .description('Check lint problems with ESLint')
   .option('--fix', 'Fix lint problems automatically')
-  .action(lintAction);
+  .action(lint);
 
 program
   .command('format')
   .description('Format source code with Prettier and fix ESLint issues')
-  .action(() => lintAction({ fix: true }));
+  .action(() => lint({ fix: true }));
 
 program
   .command('test')
   .allowUnknownOption()
   .description('Run unit tests (same with Jest API)')
-  .action(testAction);
+  .action(() => jestRun(process.argv.slice(3)));
 
 program.helpOption('-h, --help', 'Show full help');
 program.addHelpCommand('help [command]', 'Show help of a command');

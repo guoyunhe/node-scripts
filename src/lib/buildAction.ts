@@ -1,6 +1,6 @@
 import { build, BuildOptions, context } from 'esbuild';
 import glob from 'fast-glob';
-import { rm, readJSON } from 'fs-extra';
+import { readJSON, rm } from 'fs-extra';
 import { join } from 'path';
 import { bundleDeclaration } from './bundleDeclaration';
 
@@ -11,7 +11,7 @@ export interface BuildActionOptions {
 export async function buildAction({ watch }: BuildActionOptions) {
   const packageJson = (await readJSON('package.json', { throws: false })) || {};
   const define = {
-    PACKAGE_VERSION: '"' + packageJson.version + '"',
+    PACKAGE_VERSION: `"${packageJson.version}"`,
   };
   const entryPoints = await glob([join('src', 'bin', '*.ts'), join('src', 'index.ts')]);
   const commonOptions: BuildOptions = {
