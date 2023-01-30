@@ -6,60 +6,60 @@
 
 ## 1.7.1 - 2023-01-26
 
-- Fix `package.json` spaces
+- Fixed `package.json` spaces
 
 ## 1.7.0 - 2023-01-26
 
-- Format `package.json`
+- Formatted `package.json`
 
 ## 1.6.0 - 2023-01-22
 
-- Update `esbuild` from 0.16.x to 0.17.x
+- Updated `esbuild` from 0.16.x to 0.17.x
 
 ## 1.5.1 - 2023-01-22
 
-- Fix build bundle size by external `devDependencies` and `peerDependencies`
+- Fixed build bundle size by external `devDependencies` and `peerDependencies`
 
 ## 1.5.0 - 2022-12-17
 
-- Output TypeScript declartion (.d.ts)
+- Added TypeScript declartion (.d.ts) output
 
 ## 1.4.0 - 2022-12-13
 
-- Change lint config package name
+- Changed lint config package name
 
 ## 1.3.0 - 2022-12-13
 
 - Added `build --watch` option
-- Add `watch` command, same as `build --watch`
+- Added `watch` command, same as `build --watch`
 
 ## 1.2.0 - 2022-12-12
 
-- Support tsconfig `target`
+- Added tsconfig `target` support
 
 ## 1.1.3 - 2022-12-11
 
-- Fix bin scripts
+- Fixed bin scripts
 
 ## 1.1.2 - 2022-12-11
 
-- Fix bin scripts
+- Fixed bin scripts
 
 ## 1.1.1 - 2022-12-11
 
-- Fix `ts-jest` dependency
+- Fixed `ts-jest` dependency
 
 ## 1.1.0 - 2022-12-11
 
-- Add Jest preset
+- Added Jest preset
 
 ## 1.0.1 - 2022-12-11
 
-- Fix `build` bundle
+- Fixed `build` bundle
 
 ## 1.0.0 - 2022-12-11
 
-- Add `build` command
-- Add `format` command
-- Add `lint` command
-- Add `test` command
+- Added `build` command
+- Added `format` command
+- Added `lint` command
+- Added `test` command
