@@ -1,7 +1,7 @@
 import { bundleDts } from '@guoyunhe/bundle-dts';
 import { build, BuildOptions, context } from 'esbuild';
 import glob from 'fast-glob';
-import { readJSON, rm } from 'fs-extra';
+import { readFile, rm } from 'fs/promises';
 import { join } from 'path';
 
 export interface BuildActionOptions {
@@ -9,11 +9,11 @@ export interface BuildActionOptions {
 }
 
 export async function buildNode({ watch }: BuildActionOptions) {
-  const packageJson = (await readJSON('package.json', { throws: false })) || {};
+  const packageJson = JSON.parse(await readFile('package.json', 'utf-8'));
   const define = {
     PACKAGE_VERSION: `"${packageJson.version}"`,
   };
-  const entryPoints = await glob([join('src', 'bin', '*.ts'), join('src', 'index.ts')]);
+  const entryPoints = await glob(['src/bin/*.ts', 'src/index.ts']);
   const commonOptions: BuildOptions = {
     entryPoints,
     bundle: true,
