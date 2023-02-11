@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 - 2023-02-11
+
+- Fixed exception when here is no `src/index.ts`
+
 ## 2.0.0 - 2023-02-11
 
 - **BREAKING CHANGE**: Changed output file paths

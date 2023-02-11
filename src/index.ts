@@ -2,7 +2,7 @@ import { bundleDts } from '@guoyunhe/bundle-dts';
 import { build, BuildOptions, context } from 'esbuild';
 import glob from 'fast-glob';
 import { readFile, rm } from 'fs/promises';
-import { join } from 'path';
+import { basename, join } from 'path';
 
 export interface BuildActionOptions {
   watch: boolean;
@@ -14,8 +14,13 @@ export async function buildNode({ watch }: BuildActionOptions) {
     PACKAGE_NAME: `"${packageJson.name}"`,
     PACKAGE_VERSION: `"${packageJson.version}"`,
   };
+
+  const entries = await glob(['src/index.ts', 'src/bin/*.ts'], {
+    ignore: ['*.{spec,test}.ts'],
+  });
+
   const commonOptions: BuildOptions = {
-    entryPoints: ['src/index.ts'],
+    entryPoints: entries.map((file) => ({ in: file, out: basename(file).replace('.ts', '') })),
     bundle: true,
     define,
     packages: 'external',
@@ -39,11 +44,7 @@ export async function buildNode({ watch }: BuildActionOptions) {
     }
   }
 
-  const binEntryPoints = await glob('src/bin/*.ts', { ignore: ['*.{spec,test}.ts'] });
-
   await Promise.all([
-    // Build bin scripts
-    buildAndWatch({ format: 'cjs', entryPoints: binEntryPoints }),
     // Build CJS output
     buildAndWatch({ format: 'cjs' }),
     // Build ESM output
