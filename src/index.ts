@@ -11,24 +11,25 @@ export interface BuildActionOptions {
 export async function buildNode({ watch }: BuildActionOptions) {
   const packageJson = JSON.parse(await readFile('package.json', 'utf-8'));
   const define = {
+    PACKAGE_NAME: `"${packageJson.name}"`,
     PACKAGE_VERSION: `"${packageJson.version}"`,
   };
-  const entryPoints = await glob(['src/bin/*.ts', 'src/index.ts']);
   const commonOptions: BuildOptions = {
-    entryPoints,
+    entryPoints: ['src/index.ts'],
     bundle: true,
     define,
     packages: 'external',
     platform: 'node',
     write: true,
+    outdir: 'dist',
   };
+
   await rm('dist', { force: true, recursive: true });
 
-  async function buildJs(format: 'cjs' | 'esm') {
+  async function buildAndWatch(options: BuildOptions) {
     const buildOptions: BuildOptions = {
       ...commonOptions,
-      format,
-      outdir: join('dist', format),
+      ...options,
     };
     if (watch) {
       const ctx = await context(buildOptions);
@@ -38,10 +39,17 @@ export async function buildNode({ watch }: BuildActionOptions) {
     }
   }
 
+  const binEntryPoints = await glob('src/bin/*.ts', { ignore: ['*.{spec,test}.ts'] });
+
   await Promise.all([
-    buildJs('cjs'),
-    buildJs('esm'),
-    bundleDts({ outFile: join('dist', 'dts', 'index.d.ts') }),
+    // Build bin scripts
+    buildAndWatch({ format: 'cjs', entryPoints: binEntryPoints }),
+    // Build CJS output
+    buildAndWatch({ format: 'cjs' }),
+    // Build ESM output
+    buildAndWatch({ format: 'esm', outExtension: { '.js': '.mjs' } }),
+    // Build *.d.ts output, watch mode is not supported yet
+    bundleDts({ outFile: join('dist', 'index.d.ts') }),
   ]);
 
   if (watch) {

@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.0.0 - 2023-02-11
+
+- **BREAKING CHANGE**: Changed output file paths
+  - dist/cjs/index.js -> dist/index.js
+  - dist/cjs/bin/my-cli.js -> dist/my-cli.js
+  - dist/esm/index.js -> dist/index.mjs
+  - dist/esm/bin/my-cli.js -> (deleted)
+  - dist/dts/index.d.ts -> dist/index.d.ts
+- Updated `commander` from 9.x to 10.x
+- Added `PACKAGE_NAME` global definition
+
 ## 1.9.0 - 2023-01-30
 
 - Refactored `build` action
