@@ -4,11 +4,25 @@ Scripts to build, lint and test Node.js projects.
 
 Features:
 
-- TypeScript
-- esbuild
-- ESLint
-- Prettier
-- Jest
+- Minimum configuration, easy to use
+- Lightning fast build speed, powered by esbuild
+- Full TypeScript support in build, lint and test
+- Ensure good coding style by ESLint and Prettier
+- Out of box unit test support, powered by Jest
+
+## Create projects
+
+Create a node project:
+
+```
+npm create @guoyunhe/node my-package
+```
+
+Create a CLI project:
+
+```
+npm create @guoyunhe/cli my-package
+```
 
 ## Options
 
@@ -19,55 +33,6 @@ Show help.
 ### --version
 
 Show version.
-
-## Configuration
-
-Suggested configuration in `package.json`:
-
-```json
-{
-  "files": ["dist", "CHANGELOG.md", "LICENSE", "README.md"],
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
-  "eslintConfig": {
-    "extends": "@guoyunhe/node-scripts"
-  },
-  "jest": {
-    "preset": "@guoyunhe/node-scripts"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true
-  }
-}
-```
-
-For CLI project, add `bin` to `package.json`:
-
-```json
-{
-  "bin": {
-    "my-cli": "dist/my-cli.js",
-    "another-cli": "dist/another-cli.js"
-  }
-}
-```
-
-Suggested `.editorconfig`:
-
-```ini
-root = true
-
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 2
-indent_style = space
-insert_final_newline = true
-trim_trailing_whitespace = true
-quote_type = single
-```
 
 ## Commands
 
