@@ -5,10 +5,12 @@ Scripts to build, lint and test Node.js projects.
 Features:
 
 - Minimum configuration, easy to use
+- Output both CJS and ESM bundle
 - Lightning fast build speed, powered by esbuild
 - Full TypeScript support in build, lint and test
 - Ensure good coding style by ESLint and Prettier
 - Out of box unit test support, powered by Jest
+- Global variable `PACKAGE_NAME` and `PACKAGE_VERSION` to easily inject package information
 
 ## Create projects
 
