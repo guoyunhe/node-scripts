@@ -91,14 +91,6 @@ Format code and fix ESLint issues. Same as `node-scripts lint --fix`.
 node-scripts format
 ```
 
-### format
-
-Format code and fix ESLint issues. Same as `node-scripts lint --fix`.
-
-```
-node-scripts format
-```
-
 ### test
 
 Run unit tests with Jest. Generate coverage report at `coverage`.
