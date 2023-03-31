@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0 - 2023-03-31
+
+- Changed to not output CJS and give ESM `.js` ext when `type: "module"` found in `package.json`
+
 ## 2.0.4 - 2023-02-16
 
 - Fixed peerDependencies `eslint` and `prettier`
