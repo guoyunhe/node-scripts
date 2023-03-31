@@ -1,6 +1,6 @@
 declare global {
-  const PACKAGE_NAME: string | undefined;
-  const PACKAGE_VERSION: string | undefined;
+  const PACKAGE_NAME: string;
+  const PACKAGE_VERSION: string;
 }
 
 export {};

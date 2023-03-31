@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.4 - 2023-02-16
+
+- Fixed peerDependencies `eslint` and `prettier`
+
 ## 2.0.2 - 2023-02-11
 
 - Fixed global type `PACKAGE_NAME`
