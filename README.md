@@ -14,17 +14,21 @@ Features:
 
 ## Create projects
 
-Create a node project:
+### Node library
 
 ```
 npm create @guoyunhe/node my-package
 ```
 
-Create a CLI project:
+Checkout [create-node](https://github.com/guoyunhe/create-node) for more options.
+
+### CLI tool
 
 ```
 npm create @guoyunhe/cli my-package
 ```
+
+Checkout [create-cli](https://github.com/guoyunhe/create-cli) for more options.
 
 ## Options
 
