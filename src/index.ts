@@ -46,9 +46,12 @@ export async function buildNode({ watch }: BuildActionOptions) {
 
   await Promise.all([
     // Build CJS output
-    buildAndWatch({ format: 'cjs' }),
+    packageJson.type !== 'module' && buildAndWatch({ format: 'cjs' }),
     // Build ESM output
-    buildAndWatch({ format: 'esm', outExtension: { '.js': '.mjs' } }),
+    buildAndWatch({
+      format: 'esm',
+      outExtension: { '.js': packageJson.type === 'module' ? '.js' : '.mjs' },
+    }),
     // Build *.d.ts output, watch mode is not supported yet
     bundleDts({ outFile: join('dist', 'index.d.ts') }),
   ]);
