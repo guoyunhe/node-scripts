@@ -66,7 +66,7 @@
     "ts-jest": "^29.1.0"
   },
   "devDependencies": {
-    "@tsconfig/node18-strictest": "^1.0.4",
+    "@tsconfig/node18-strictest": "^1.0.0",
     "@types/node": "^18.16.18",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.3"
