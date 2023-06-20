@@ -1,6 +1,6 @@
 {
   "name": "@guoyunhe/node-scripts",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "description": "Scripts for Node.js libraries or command line tools",
   "keywords": [
     "cli",
