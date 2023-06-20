@@ -1,7 +1,8 @@
 # Changelog
 
-## 2.1.0 - 2023-03-31
+## 2.1.0 - 2023-06-20
 
+- Updated `typescript` (4→5)
 - Changed to not output CJS and give ESM `.js` ext when `type: "module"` found in `package.json`
 
 ## 2.0.4 - 2023-02-16
