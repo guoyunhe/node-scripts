@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 - 2023-06-24
+
+- Updated `esbuild` (0.17→0.18)
+
 ## 2.1.0 - 2023-06-20
 
 - Updated `typescript` (4→5)

@@ -58,7 +58,7 @@
     "@guoyunhe/eslint-config-node-scripts": "^1.2.0",
     "@guoyunhe/lint-action": "^1.0.1",
     "commander": "^10.0.1",
-    "esbuild": "^0.17.19",
+    "esbuild": "^0.18.7",
     "eslint": "^8.43.0",
     "fast-glob": "^3.2.12",
     "jest": "^29.5.0",
